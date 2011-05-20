@@ -64,6 +64,7 @@ set listchars=tab:\|\ ,extends:>,precedes:< "These only show when 'list' is set
 set suffixes-=.h "Remove .h files from the low priority suffixes list on command line completion
 set number
 set bg=light
+set clipboard=unnamed
 
 "set guitablabel=%N\ %{GetTabLabel2()}\ %t
 
