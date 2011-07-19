@@ -1,43 +1,24 @@
-"---------- SCRIPTS ----------
+set nocompatible               " be iMproved
+filetype off                   " required!
+  
+" ---------- BUNDLES ----------
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+	
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'sorin-ionescu/python.vim'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'vim-scripts/surround.vim'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'gmarik/vim-markdown'
 
-"---------- FUNCTIONS ---------- 
-
-function! s:FTobjch()
-	let n = 1
-	while n < 25
-		let line = getline(n)
-		if line =~'^\s*\(@\s*class\|@\s*interface\|#import\)'
-			setf objc
-			return
-		endif
-		let n = n + 1
-	endwhile
-endfun
-
-" ---------- MAPPINGS ----------
-
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
-" mappings to always show search result in the center of the screen
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
-
-nmap <F9> :QFix<CR>
-
-"---------- COMMANDS ----------
-
-"switch to directory of open file
-
-autocmd BufNewFile,BufRead *.h call s:FTobjch()
-autocmd FileType objc set makeprg=xcodebuild\ -activeconfiguration
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
 
 " ---------- SETTINGS ----------
 set sm
@@ -66,7 +47,28 @@ set number
 set bg=light
 set clipboard=unnamed
 
-"set guitablabel=%N\ %{GetTabLabel2()}\ %t
+" ---------- MAPPINGS ----------
+
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+" mappings to always show search result in the center of the screen
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
+nmap <F9> :QFix<CR>
+
+"---------- COMMANDS ----------
+
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
 
 "Remove .h files from the low priority suffixes list in file browse mode
 let g:netrw_sort_sequence='[\/]$,*,\.bak$,\.o$,\.info$,\.swp$,\.obj$' 
@@ -77,6 +79,11 @@ let g:load_doxygen_syntax=1
 
 " objc language for Taglist
 "let s:tlist_def_objc_settings = 'objch;c:class;m:method;v:variable'
+
+" pyflakes
+let g:pyflakes_use_quickfix = 0
+
+"set statusline+=%{fugitive#statusline()}
 
 syn on
 filetype indent on
