@@ -16,9 +16,13 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'vim-scripts/surround.vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'gmarik/vim-markdown'
+Bundle 'ervandew/supertab'
+Bundle 'gotcha/vimpdb'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
+
+filetype on
 
 " ---------- SETTINGS ----------
 set sm
