@@ -39,4 +39,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/Users/amrox/.bin:/usr/bin:/bin:/usr/
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
 
-source /usr/local/bin/virtualenvwrapper.sh
+# Virtualenv Burrito
+source ~/.venvburrito/startup.sh
