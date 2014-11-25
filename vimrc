@@ -2,25 +2,32 @@ set nocompatible               " be iMproved
 filetype off                   " required!
   
 " ---------- BUNDLES ----------
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-	
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'fugitive.vim'
+Plugin 'Syntastic'
+Plugin 'SuperTab'
+Plugin 'python.vim'
+Plugin 'The-NERD-tree'
+Plugin 'fatih/vim-go'
 
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'sorin-ionescu/python.vim'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'vim-scripts/surround.vim'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'gmarik/vim-markdown'
-Bundle 'ervandew/supertab'
-Bundle 'gotcha/vimpdb'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'sorin-ionescu/python.vim'
+"Bundle 'scrooloose/nerdtree.git'
+"Bundle 'vim-scripts/surround.vim'
+"Bundle 'pyflakes'
+"Bundle 'gmarik/vim-markdown'
+"Bundle 'ervandew/supertab'
+"Bundle 'gotcha/vimpdb'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+Plugin 'git://git.wincent.com/command-t.git'
 
 filetype on
 
@@ -90,7 +97,8 @@ let g:pyflakes_use_quickfix = 0
 "set statusline+=%{fugitive#statusline()}
 
 syn on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 " ---------- TESTING ----------
+"
+let g:syntastic_python_flake8_args='--ignore=E501,E128,E127,E124,E701,E211,E226,E265,E131,E201,E202,E203,E126,E121,E123,E401'
