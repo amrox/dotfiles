@@ -36,6 +36,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/Users/amrox/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/android-sdk-mac_x86/tools:/usr/local/mysql/bin:/opt/aws/ec2/bin:/opt/aws/cloudfront:/opt/aws/rds/bin:/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/usr/local/Cellar/ruby/1.9.3-p194/bin
+unsetopt correct_all # turn off autocorrect
 
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
