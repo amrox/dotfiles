@@ -1,7 +1,7 @@
 set nocompatible               " be iMproved
+
+" ---------- VUNDLE ----------
 filetype off                   " required!
-  
-" ---------- BUNDLES ----------
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -15,21 +15,22 @@ Plugin 'SuperTab'
 Plugin 'python.vim'
 Plugin 'The-NERD-tree'
 Plugin 'fatih/vim-go'
-
-" original repos on github
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'sorin-ionescu/python.vim'
-"Bundle 'scrooloose/nerdtree.git'
-"Bundle 'vim-scripts/surround.vim'
-"Bundle 'pyflakes'
-"Bundle 'gmarik/vim-markdown'
-"Bundle 'ervandew/supertab'
-"Bundle 'gotcha/vimpdb'
-
-" non github repos
 Plugin 'git://git.wincent.com/command-t.git'
 
-filetype on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " ---------- SETTINGS ----------
 set sm
