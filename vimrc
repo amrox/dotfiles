@@ -16,6 +16,9 @@ Plugin 'python.vim'
 Plugin 'The-NERD-tree'
 Plugin 'fatih/vim-go'
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'tpope/vim-surround'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,18 +87,12 @@ set completeopt=menuone,longest,preview
 
 "Remove .h files from the low priority suffixes list in file browse mode
 let g:netrw_sort_sequence='[\/]$,*,\.bak$,\.o$,\.info$,\.swp$,\.obj$' 
-let g:CodeReviewer_reviewer="ARM"  
 
 "load doxygen syntax highlighting
 let g:load_doxygen_syntax=1
 
-" objc language for Taglist
-"let s:tlist_def_objc_settings = 'objch;c:class;m:method;v:variable'
-
 " pyflakes
 let g:pyflakes_use_quickfix = 0
-
-"set statusline+=%{fugitive#statusline()}
 
 syn on
 filetype plugin indent on
