@@ -33,19 +33,21 @@ alias gsub="git submodule update --init --recursive"
 plugins=(git compleat docker golang fabric jsontools nyan pip python)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/Users/amrox/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/android-sdk-mac_x86/tools:/usr/local/mysql/bin:/opt/aws/ec2/bin:/opt/aws/cloudfront:/opt/aws/rds/bin:/bin:/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/usr/local/Cellar/ruby/1.9.3-p194/bin
 unsetopt correct_all # turn off autocorrect
 
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
 
-# Virtualenv Wrapper/Burrito
+# Paths
+export PATH=$HOME/.bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/X11/bin:$PATH
+export PATH=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH
+export PATH=$HOME/.rvm/bin:$PATH
 
+# Virtualenv Wrapper/Burrito
 VIRTUALENVWRAPPER_BURRITO=~/.venvburrito/startup.sh
 VIRTUALENVWRAPPER_BREW=/usr/local/share/python/virtualenvwrapper.sh
-
 for p ($VIRTUALENVWRAPPER_BURRITO $VIRTUALENVWRAPPER_BREW); do
 	if  [[ -a $p ]]; then
 		source $p
