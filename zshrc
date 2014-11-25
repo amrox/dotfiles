@@ -10,6 +10,7 @@ ZSH_THEME="steeef"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gsub="git submodule update --init --recursive"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -38,7 +39,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/Users/amrox/
 
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
-
 
 # Virtualenv Wrapper/Burrito
 
