@@ -45,7 +45,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 VIRTUALENVWRAPPER_BURRITO=~/.venvburrito/startup.sh
 VIRTUALENVWRAPPER_BREW=/usr/local/share/python/virtualenvwrapper.sh
 
-for p ($VIRTUALENVWRAPPER_BURRITO, $VIRTUALENVWRAPPER_BREW); do
+for p ($VIRTUALENVWRAPPER_BURRITO $VIRTUALENVWRAPPER_BREW); do
 	if  [[ -a $p ]]; then
 		source $p
 		break
