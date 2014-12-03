@@ -41,6 +41,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 # Paths
 export PATH=$HOME/.bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/X11/bin:$PATH
 export PATH=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH
 export PATH=$HOME/.rvm/bin:$PATH
