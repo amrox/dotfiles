@@ -30,7 +30,7 @@ alias gsub="git submodule update --init --recursive"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew compleat docker gitfast git-extras golang fabric jsontools nyan osx pip python)
+plugins=(brew compleat docker encode64 gitfast git-extras golang fabric jsontools nyan osx pip python)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all # turn off autocorrect
