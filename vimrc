@@ -19,6 +19,9 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bling/vim-airline'
+Plugin 'derekwyatt/vim-scala'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,8 +84,8 @@ nmap <F9> :QFix<CR>
 
 "---------- COMMANDS ----------
 
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType="context"
 set completeopt=menuone,longest,preview
 
 "Remove .h files from the low priority suffixes list in file browse mode
@@ -99,4 +102,5 @@ filetype plugin indent on
 
 " ---------- TESTING ----------
 "
-let g:syntastic_python_flake8_args='--ignore=E501,E128,E127,E124,E701,E211,E226,E265,E131,E201,E202,E203,E126,E121,E123,E401'
+"let g:syntastic_python_flake8_args='--ignore=E501,E128,E127,E124,E701,E211,E226,E265,E131,E201,E202,E203,E126,E121,E123,E401,E251,E231,E225'
+let g:syntastic_python_flake8_args='--ignore=E501,E128,E265'
