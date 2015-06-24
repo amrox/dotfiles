@@ -15,19 +15,21 @@ Plugin 'SuperTab'
 Plugin 'python.vim'
 Plugin 'The-NERD-tree'
 Plugin 'fatih/vim-go'
-Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bling/vim-airline'
-Plugin 'derekwyatt/vim-scala'
+Plugin 'kien/ctrlp.vim'
 Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'OrangeT/vim-csharp'
+Plugin 'tfnico/vim-gradle'
+"Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+set modeline
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -85,6 +87,9 @@ nmap g# g#zz
 nmap <F9> :QFix<CR>
 
 "---------- COMMANDS ----------
+
+autocmd FileType java set softtabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType cs set softtabstop=4|set shiftwidth=4|set expandtab
 
 "au FileType python set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType="context"
