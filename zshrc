@@ -13,6 +13,7 @@ ZSH_THEME="steeef"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gsub="git submodule update --init --recursive"
+alias bbb="brew update && brew upgrade && brew cleanup"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
