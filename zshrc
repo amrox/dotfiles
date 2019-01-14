@@ -13,6 +13,8 @@ ZSH_THEME="steeef"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gsub="git submodule update --init --recursive"
+alias gdmerged="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d ; git remote prune origin"
+alias gcountall="git rev-list --all --count"
 alias bbb="brew update && brew upgrade && brew cleanup"
 
 # Set to this to use case-sensitive completion
@@ -64,8 +66,11 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/X11/bin:$PATH"
 export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
-export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
+
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Virtualenv Wrapper/Burrito
 VIRTUALENVWRAPPER_BURRITO=~/.venvburrito/startup.sh
