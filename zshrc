@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git compleat brew docker docker-compose emoji fzf zsh_reload)
+plugins=(git compleat docker docker-compose emoji fzf zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
