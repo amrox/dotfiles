@@ -1,39 +1,50 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="steeef"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gsub="git submodule update --init --recursive"
-alias gdmerged="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d ; git remote prune origin"
-alias gcountall="git rev-list --all --count"
-alias bbb="brew update && brew upgrade && brew cleanup"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Set to this to use case-sensitive completion
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -43,41 +54,54 @@ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew compleat docker encode64 gitfast git-extras golang fabric jsontools nyan osx pip python)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git compleat brew docker docker-compose emoji fzf zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
-unsetopt correct_all # turn off autocorrect
+
+# User configuration
+
+#! = temporary disable, delete if nothing breaks
+
+#!unsetopt correct_all # turn off autocorrect
+
+alias gsub="git submodule update --init --recursive"
+alias gdmerged="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d ; git remote prune origin"
+alias gcountall="git rev-list --all --count"
+alias bbb="brew update && brew upgrade && brew cleanup"
+
 
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
 
+# Man Paths
+#!export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+#!export MANPATH="/usr/local/man:$MANPATH"
+
 # Paths
 export PATH="$HOME/.bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/X11/bin:$PATH"
-export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
-export PATH="$HOME/.fastlane/bin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="$HOME/bin:$PATH"
 
-export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+if [ -e "$HOME/.zshrc_local" ]; then
+	source "$HOME/.zshrc_local"
+fi
+#!export PATH="/usr/local/bin:$PATH"
+#!export PATH="/usr/local/sbin:$PATH"
+#!export PATH="/usr/X11/bin:$PATH"
+#!export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
+#!export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+#!export PATH=$PATH:$(go env GOPATH)/bin
 
-# Virtualenv Wrapper/Burrito
-VIRTUALENVWRAPPER_BURRITO=~/.venvburrito/startup.sh
-VIRTUALENVWRAPPER_BREW=/usr/local/share/python/virtualenvwrapper.sh
-for p ($VIRTUALENVWRAPPER_BURRITO $VIRTUALENVWRAPPER_BREW); do
-	if  [[ -a $p ]]; then
-		source $p
-		break
-	fi
-done
