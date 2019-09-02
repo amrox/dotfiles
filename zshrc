@@ -8,7 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
+#ZSH_THEME="steeef"
+#ZSH_THEME="terminalparty"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +70,21 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git compleat docker docker-compose emoji fzf zsh_reload)
+plugins=(git
+		compleat
+		brew
+		docker
+		docker-compose
+		emoji
+		fzf
+		z
+		cp
+		colorize
+		colored-man-pages
+		zsh-syntax-highlighting
+		zsh-autosuggestions
+		common-aliases # experimental
+		zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,10 +94,15 @@ source $ZSH/oh-my-zsh.sh
 
 #!unsetopt correct_all # turn off autocorrect
 
+
+autoload -U promptinit; promptinit
+prompt pure
+
 alias gsub="git submodule update --init --recursive"
 alias gdmerged="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d ; git remote prune origin"
 alias gcountall="git rev-list --all --count"
 alias bbb="brew update && brew upgrade && brew cleanup"
+alias whatismyip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 
 # Solarized colors
@@ -92,15 +113,14 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 #!export MANPATH="/usr/local/man:$MANPATH"
 
 # Paths
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 if [ -e "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
-
+#!export PATH="/usr/local/bin:$PATH"
+#!export PATH="/usr/local/sbin:$PATH"
 #!export PATH="/usr/X11/bin:$PATH"
 #!export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
 #!export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
