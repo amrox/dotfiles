@@ -75,6 +75,7 @@ plugins=(git
 		brew
 		docker
 		docker-compose
+		kubectl
 		emoji
 		fzf
 		z
