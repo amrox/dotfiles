@@ -105,6 +105,11 @@ alias gcountall="git rev-list --all --count"
 alias bbb="brew update && brew upgrade && brew cleanup"
 alias whatismyip="dig +short myip.opendns.com @resolver1.opendns.com"
 
+if [ ! -z $(command -v exa) ]; then
+	alias ls='exa'
+	alias ll='exa -lhg --git'
+fi
+
 
 # Solarized colors
 export LSCOLORS=exfxcxdxbxegedabagacad
@@ -126,4 +131,7 @@ fi
 #!export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
 #!export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 #!export PATH=$PATH:$(go env GOPATH)/bin
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
