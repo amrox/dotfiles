@@ -115,24 +115,9 @@ fi
 export LSCOLORS=exfxcxdxbxegedabagacad
 
 # Man Paths
-#!export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-#!export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 
-# Paths
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-
-if [ -e "$HOME/.zshrc_local" ]; then
-	source "$HOME/.zshrc_local"
-fi
-
-#!export PATH="/usr/local/bin:$PATH"
-#!export PATH="/usr/X11/bin:$PATH"
-#!export PATH="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:$PATH"
-#!export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-#!export PATH=$PATH:$(go env GOPATH)/bin
-
-
+# iTerm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
