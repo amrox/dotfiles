@@ -6,6 +6,10 @@
 	
 	excludesfile = ~/.gitignore_global
 
+[credential]
+
+	helper = store
+
 [color "branch"]
 
 	current = yellow reverse
