@@ -1,4 +1,6 @@
-" https://www.rosipov.com/blog/sane-vim-defaults-from-neovim/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Some sane defaults for vim
+" via https://www.rosipov.com/blog/sane-vim-defaults-from-neovim/
 if !has('nvim')
   set nocompatible
   syntax on
@@ -24,5 +26,14 @@ if !has('nvim')
   set wildmenu
 endif
 
-set expandtab
-set shiftwidth=4
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Detect Identation
+Plug 'tpope/vim-sleuth'
+
+" Initialize plugin system
+call plug#end()
