@@ -1,5 +1,10 @@
 [user]
+	
 	name = "Andy Mroczkowski"
+
+[core]
+	
+	excludesfile = ~/.gitignore_global
 
 [color "branch"]
 
