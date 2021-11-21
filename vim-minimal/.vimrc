@@ -1,6 +1,25 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins via vim-plug
+"
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Sensible
+Plug 'tpope/vim-sensible'
+
+" Detect Identation
+Plug 'tpope/vim-sleuth'
+
+" Initialize plugin system
+call plug#end() 
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Some sane defaults for vim
 " via https://www.rosipov.com/blog/sane-vim-defaults-from-neovim/
+" TODO: determine if these are redundant with vim-sensible
 if !has('nvim')
   set nocompatible
   syntax on
@@ -26,14 +45,17 @@ if !has('nvim')
   set wildmenu
 endif
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+" Settings
 
-" Detect Identation
-Plug 'tpope/vim-sleuth'
+set mouse=a
 
-" Initialize plugin system
-call plug#end()
+" Fix auto-indentation for YAML files
+" https://stackoverflow.com/a/54747794
+" TODO: determine if this is necessary with vim-sleuth
+augroup yaml_fix
+  autocmd!
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+augroup END
+
