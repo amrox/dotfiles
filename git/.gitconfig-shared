@@ -1,41 +1,21 @@
 [user]
-	
 	name = "Andy Mroczkowski"
 
 [core]
-	
 	excludesfile = ~/.gitignore_global
 
 [credential]
-
 	helper = store
 
-[color "branch"]
-
-	current = yellow reverse
-	local = yellow
-	remote = green
-
-[color "diff"]
-
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
-
-[color "status"]
-
-	added = yellow
-	changed = green
-	untracked = cyan
-
 [diff]
-
 	# Detect copies as well as renames
 	renames = copies
 
-[help]
+[fetch]
+	# remove stale branches on fetch
+	prune = true
 
+[help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
@@ -44,3 +24,23 @@
 
 [rerere]
 	enabled = 1
+
+[status]
+	submoduleSummary = true
+	
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
