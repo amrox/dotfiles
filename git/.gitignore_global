@@ -1,6 +1,9 @@
+# vim
 *.swp
 
-.envrc
+# direnv
+.envrc # experimental
+.envrc.private
 
 # mypy
 .dmypy.json

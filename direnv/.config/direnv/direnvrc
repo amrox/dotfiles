@@ -2,14 +2,17 @@
 # export DIRENV_LOG_FORMAT="
 #
 
+# asdf direnv 
+#
+source "$(asdf direnv hook asdf)"
+
 # Experimental automation loading
 #
-if [ -f shell.nix ]; then
+if [[ -f .envrc.private ]]; then
+	source_env .envrc.private
+elif [[ -f shell.nix ]]; then
 	use nix
-elif [ -f .tool-versions ]; then
-	source "$(asdf direnv hook asdf)"
+elif [[ -f .tool-versions ]]; then
 	use asdf
 fi
 
-# maybe try this?
-#[[ -f .envrc.private ]] && source_env .envrc.private
