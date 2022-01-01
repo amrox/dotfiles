@@ -1,1 +1,6 @@
 *.swp
+
+.envrc
+
+# mypy
+.dmypy.json
