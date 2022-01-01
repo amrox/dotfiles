@@ -34,6 +34,11 @@ In your local `~/.gitconfig` do this:
 
 Basic sane settings to make vim act modernly and try to be smart about identation.
 
+### system-setup
+
+Scripts general system configuration. These are not really "dotfiles", but this
+seemed like a good enough place for now.
+
 ### License
 
 MIT
