@@ -2,7 +2,8 @@
 *.swp
 
 # direnv
-.envrc # experimental
+## experimental
+.envrc 
 .envrc.private
 
 # mypy
