@@ -8,7 +8,8 @@ return require('packer').startup(function()
   ---------------------
 
   -- Vimpeccable for vim keybindings
-  use { 'svermeulen/vimpeccable' }
+  -- TODO: disabled for now - found it better to just map keys w/o it
+  -- use { 'svermeulen/vimpeccable' }
 
 
   -------------------------

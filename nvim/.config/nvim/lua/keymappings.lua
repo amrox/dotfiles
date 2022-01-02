@@ -1,20 +1,33 @@
 local utils = require('utils')
-local vimp = require('vimp')
+-- local vimp = require('vimp')
 
 utils.map('n', '<C-l>', '<cmd>noh<CR>') -- Clear highlights
 utils.map('i', 'jk', '<Esc>')           -- jk to escape
 
--- TODO: figure this out - says the keys were already mapped ??
--- if(vim.g.vscode) then
+if(vim.g.vscode) then
+    -- TODO: move to separate file? Or just use vscode.vim?
 
---     -- utils.map('i', '<C-/>', '<Plug>VSCodeCommentarygv')
---     -- utils.map('n', '<C-/>', '<Plug>VSCodeCommentaryLine')
+    -- vim-commentary -like functionality
+    -- via: https://github.com/asvetliakov/vscode-neovim#vim-commentary
+    utils.map('x', 'gc', '<Plug>VSCodeCommentary', {noremap=false})
+    utils.map('n', 'gc', '<Plug>VSCodeCommentary', {noremap=false})
+    utils.map('o', 'gc', '<Plug>VSCodeCommentary', {noremap=false})
+    utils.map('n', 'gcc', '<Plug>VSCodeCommentaryLine', {noremap=false})
+    -- or via vimpeccable
+    -- TODO: I was getting remap errors even with override?
+    -- vimp.xmap({'override'}, 'gc', '<Plug>VSCodeCommentary')
+    -- vimp.nmap({'override'}, 'gc', '<Plug>VSCodeCommentary')
+    -- vimp.omap({'override'}, 'gc', '<Plug>VSCodeCommentary')
+    -- vimp.nmap({'override'}, 'gcc', '<Plug>VSCodeCommentaryLine')
 
---     vimp.xmap('<C-/>', '<Plug>VSCodeCommentarygv')
---     vimp.nmap('<C-/>', '<Plug>VSCodeCommentaryLine')
+    -- Keep selection after toggling comment
+    -- via: https://github.com/asvetliakov/vscode-neovim/issues/199#issuecomment-640284496
+    -- note: surrounding in parens '(VSCodeCommentary)gv' does not seem to work
+    utils.map('x', '<C-/>', '<Plug>VSCodeCommentarygv', {noremap=false})
+    utils.map('n', '<C-/>', '<Plug>VSCodeCommentaryLine', {noremap=false})
+    -- or via vimpeccable
+    -- TODO: I was getting remap errors even with override?
+    -- vimp.xmap({'override'}, '<C-/>', '<Plug>VSCodeCommentarygv')
+    -- vimp.nmap({'override'}, '<C-/>', '<Plug>VSCodeCommentaryLine')
 
---     -- vimp.xmap('gc', '<Plug>VSCodeCommentary')
---     -- vimp.nmap('gc', '<Plug>VSCodeCommentary')
---     -- vimp.omap('gc', '<Plug>VSCodeCommentary')
---     -- vimp.nmap('gcc', '<Plug>VSCodeCommentaryLine')
--- end
+end
