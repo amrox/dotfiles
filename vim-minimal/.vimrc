@@ -51,6 +51,14 @@ endif
 
 set mouse=a
 
+" Clipboard settings, always use clipboard for all delete, yank, change, put
+" operation, see https://stackoverflow.com/q/30691466/6064933
+set clipboard^=unnamed,unnamedplus
+
+" try to move .netrwhist file
+" https://stackoverflow.com/questions/9850360/what-is-netrwhist
+let g:netrw_home=$HOME.'.cache/vim'
+
 " Fix auto-indentation for YAML files
 " https://stackoverflow.com/a/54747794
 " TODO: determine if this is necessary with vim-sleuth
