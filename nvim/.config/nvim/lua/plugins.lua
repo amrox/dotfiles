@@ -1,4 +1,3 @@
-
 return require('packer').startup(function()
     
   -- Packer can manage itself as an optional plugin
@@ -10,6 +9,7 @@ return require('packer').startup(function()
 
   -- Vimpeccable for vim keybindings
   use { 'svermeulen/vimpeccable' }
+
 
   -------------------------
   -- Native-Only Plugins --
@@ -27,7 +27,9 @@ return require('packer').startup(function()
   }
 
   -- LSP and completion
-  use { 'neovim/nvim-lspconfig', cond = function() return not vim.g.vscode end }
+  -- TODO: seems like nvim-lspconfig isn't needed for VSCode but adding the
+  -- 'cond = function() return not vim.g.vscode end' causes errors...
+  use { 'neovim/nvim-lspconfig' }
   use { 'nvim-lua/completion-nvim', cond = function() return not vim.g.vscode end }
 
   -- Lua development
