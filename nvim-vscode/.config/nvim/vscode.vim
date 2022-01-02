@@ -1,6 +1,6 @@
-# This file was created when I couldn't get init.lua working via VS Code
-# (https://github.com/asvetliakov/vscode-neovim/issues/768#issuecomment-1003659648)
-# Right now, it is unhooked, but leaving it around for now in case it's useful
+" This file was created when I couldn't get init.lua working via VS Code
+" (https://github.com/asvetliakov/vscode-neovim/issues/768#issuecomment-1003659648)
+" Right now, it is unhooked, but leaving it around for now in case it's useful
 
 " Clipboard settings, always use clipboard for all delete, yank, change, put
 " operation, see https://stackoverflow.com/q/30691466/6064933
