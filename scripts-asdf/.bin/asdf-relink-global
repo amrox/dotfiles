@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ASDF_GLOBAL_BIN_DIR=${ASDF_GLOBAL_BIN_DIR:-$HOME/.asdf-global-bin}
+mkdir -p "$ASDF_GLOBAL_BIN_DIR"
+
+rm -f "$ASDF_GLOBAL_BIN_DIR"/* || true
+
+while read -r line; do
+    IFS=' ' read -ra fields <<<"$line"
+    name=${fields[0]}
+
+    if install_path=$(asdf where "$name"); then
+        install_bin="${install_path}/bin"
+
+        for f in "$install_bin"/*; do
+            echo "Linking $f"
+            ln -s "$f" "${ASDF_GLOBAL_BIN_DIR}/"
+        done
+    fi
+
+done <<<"$(grep -v '\s*#' "$HOME/.tool-versions")"
+# ^ strip lines with leading comments
