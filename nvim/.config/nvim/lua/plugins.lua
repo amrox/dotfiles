@@ -31,7 +31,8 @@ return require('packer').startup(function()
   -- TODO: seems like nvim-lspconfig isn't needed for VSCode but adding the
   -- 'cond = function() return not vim.g.vscode end' causes errors...
   use { 'neovim/nvim-lspconfig' }
-  use { 'nvim-lua/completion-nvim', cond = function() return not vim.g.vscode end }
+  -- use { 'nvim-lua/completion-nvim', cond = function() return not vim.g.vscode end }
+  use { 'ms-jpq/coq_nvim', cond = function() return not vim.g.vscode end }
 
   -- Lua development
   use { 'tjdevries/nlua.nvim', cond = function() return not vim.g.vscode end }
