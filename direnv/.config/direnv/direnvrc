@@ -2,10 +2,6 @@
 # export DIRENV_LOG_FORMAT="
 #
 
-# asdf direnv 
-#
-source "$(asdf direnv hook asdf)"
-
 # Experimental automation loading
 #
 if [[ -f .envrc.private ]]; then
