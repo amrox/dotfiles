@@ -20,5 +20,5 @@ while read -r line; do
         done
     fi
 
-done <<<"$(grep -v '\s*#' "$HOME/.tool-versions")"
-# ^ strip lines with leading comments
+done <<<"$(grep -v '\s*#\|^$' "$HOME/.tool-versions")"
+# ^ strip lines with leading comments or blank lines
