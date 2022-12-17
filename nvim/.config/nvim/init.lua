@@ -23,8 +23,8 @@ require('plugins')
 -- Key mappings
 require('keymappings')
 
--- Setup Lua language server using submodule
-require('lsp_lua')
+-- Setup language servers
+require('lsp')
 
 -- Another option is to groups configuration in one folder
 require('config')
