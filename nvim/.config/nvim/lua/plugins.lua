@@ -1,5 +1,5 @@
 return require('packer').startup(function()
-    
+
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
@@ -15,7 +15,7 @@ return require('packer').startup(function()
   -------------------------
   -- Native-Only Plugins --
   -------------------------
-  
+
   -- TODO: there has to be a better way that tacking on "no vim.g.vscode" to every plugin
 
   use { 'nvim-treesitter/nvim-treesitter',  cond = function() return not vim.g.vscode end }
