@@ -30,12 +30,6 @@ return {
     'neovim/nvim-lspconfig',
   },
 
-  -- Completion
-  {
-    'ms-jpq/coq_nvim',
-    cond = not_vscode,
-  },
-
   -- Vim dispatch
   {
     'tpope/vim-dispatch',
