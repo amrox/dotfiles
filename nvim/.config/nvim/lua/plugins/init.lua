@@ -11,12 +11,11 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     cond = not_vscode,
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'lua', 'bash', 'vim', 'vimdoc' },
-        highlight = { enable = true },
-      })
-    end,
+    main = 'nvim-treesitter',
+    opts = {
+      ensure_installed = { 'lua', 'bash', 'vim', 'vimdoc' },
+      highlight = { enable = true },
+    },
   },
 
   -- Fuzzy finder
