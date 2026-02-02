@@ -1,24 +1,25 @@
--- followed https://alpha2phi.medium.com/neovim-init-lua-e80f4f136030
-
--- Map leader to space
+-- Map leader to space (must be before lazy)
 vim.g.mapleader = ' '
-
-local fn = vim.fn
-local execute = vim.api.nvim_command
 
 -- Sensible defaults
 require('settings')
 
--- Auto install packer.nvim if not exists
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
 end
-vim.cmd [[packadd packer.nvim]]
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+vim.opt.rtp:prepend(lazypath)
 
 -- Install plugins
-require('plugins')
+require('lazy').setup('plugins')
 
 -- Key mappings
 require('keymappings')
@@ -26,11 +27,5 @@ require('keymappings')
 -- Setup language servers
 require('lsp')
 
--- Another option is to groups configuration in one folder
+-- Other config
 require('config')
-
--- OR you can invoke them individually here
---require('config.colorscheme')  -- color scheme
---require('config.completion')   -- completion
---require('config.fugitive')     -- fugitive
-
