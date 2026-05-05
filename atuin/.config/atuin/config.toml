@@ -26,3 +26,8 @@
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy
 # search_mode = "prefix"
+
+## On Enter, put the selected command on the prompt for editing instead of
+## executing it immediately. (Tab does the same.) Atuin's newer default is
+## `true` for fresh installs.
+enter_accept = false
