@@ -48,7 +48,7 @@ fi
 # globally for that purpose, but if something upstream sets it, drop it for
 # claude only).
 claude() {
-  env -u DO_NOT_TRACK command claude "$@"
+  env -u DO_NOT_TRACK claude "$@"
 }
 
 # OS-specific
