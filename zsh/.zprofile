@@ -3,6 +3,9 @@
 
 export DO_NOT_TRACK=1
 
+# Hint to TUIs that the terminal supports truecolor (skips probing).
+export COLORTERM=truecolor
+
 # brew (mac or linuxbrew)
 [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
