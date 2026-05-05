@@ -30,6 +30,7 @@ Replaces oh-my-zsh.
 
 ```
 zsh/
+├── README.md              # file-type model + cross-platform strategy
 ├── .zshrc                 # interactive shell init
 ├── .zprofile              # login shell init
 ├── .zsh_plugins.txt       # antidote plugin list
@@ -65,6 +66,7 @@ The `sd` plugin is intentionally omitted (origin unconfirmed; can be added later
 
 About 50 lines, in this order:
 
+0. One-line header comment: `# Interactive shell init. See zsh/README.md in the dotfiles repo for the file-type model and cross-platform strategy.`
 1. Profiling stub (commented; uncomment top + bottom to measure with `zprof`).
 2. History settings — `HISTSIZE`, `SAVEHIST`, `HISTFILE`, `setopt HIST_IGNORE_ALL_DUPS SHARE_HISTORY HIST_REDUCE_BLANKS`.
 3. Antidote bootstrap — `source ~/.zsh/antidote/antidote.zsh && antidote load ~/.zsh_plugins.txt`.
@@ -80,6 +82,8 @@ No eza alias block (user does not use eza).
 
 ## `.zprofile` structure
 
+The file starts with a one-line header comment: `# Login-shell init. See zsh/README.md in the dotfiles repo for the file-type model and cross-platform strategy.` Then:
+
 ```zsh
 export DO_NOT_TRACK=1
 
@@ -90,15 +94,18 @@ path=("$HOME/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" $path)
 
 [[ -f "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
 
-[[ -d "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]] && \
-  path=("$HOME/Library/Application Support/JetBrains/Toolbox/scripts" $path)
-
 [[ -f ~/.zprofile.local ]] && source ~/.zprofile.local
 ```
 
-## File-type guidance (the `.zshrc` vs `.zprofile` rule)
+JetBrains Toolbox scripts path is dropped from the tracked config — if needed on a given machine, it goes in `~/.zprofile.local`.
 
-For future maintenance:
+## Maintenance documentation: `zsh/README.md`
+
+A `zsh/README.md` is the canonical reference for *how to evolve these files*. Both `.zshrc` and `.zprofile` get a one-line header pointing to it; the strategy lives in the README so it's not duplicated between the two rc files.
+
+The README covers:
+
+### File-type model
 
 | File | Runs | Belongs there |
 |---|---|---|
@@ -108,12 +115,19 @@ For future maintenance:
 
 Tool docs default to `.zshrc` because it takes effect immediately in the current session, but path/env setup actually belongs in `.zprofile` to avoid re-running per pane.
 
-## Cross-platform strategy
+### Cross-platform strategy
 
 - All darwin-only paths are guarded with `[[ -x ... ]]` / `[[ -d ... ]]` / `[[ -f ... ]]` and no-op on Linux.
 - Linuxbrew path is also guarded; no-ops on macOS.
 - OS-specific blocks in `.zshrc` use `[[ "$OSTYPE" == darwin* ]]`.
-- For things that don't fit either pattern, use `~/.zshrc.local` or `~/.zprofile.local`.
+- For things that don't fit either pattern (machine-specific paths, work-only tools), use `~/.zshrc.local` or `~/.zprofile.local`. These are untracked.
+
+### How to add a new tool
+
+1. Decide: env/PATH setup → `.zprofile`. Interactive (prompt, completion, aliases) → `.zshrc`.
+2. If the tool may not be installed on every machine, guard with `command -v <tool> &>/dev/null && ...` (`.zshrc`) or `[[ -x <path> ]] && ...` (`.zprofile`).
+3. If it's machine-specific (e.g. work-only, paid app), put it in `~/.zshrc.local` / `~/.zprofile.local` instead of the tracked file.
+4. If it's a zsh plugin: add a line to `.zsh_plugins.txt` and `antidote update`.
 
 ## Migration
 
@@ -131,7 +145,7 @@ On the current machine:
 
 For the other machine (divergent state): out of scope. When pulled there, the user resolves the conflict like any normal merge — the canonical config is now the tracked one.
 
-## Updating CLAUDE.md and README
+## Updating top-level docs
 
-- README: add a `### zsh` section.
-- CLAUDE.md: move zsh out of "Pending" into "Active packages" with a one-line description.
+- Top-level `README.md`: add a `### zsh` section that points to `zsh/README.md`.
+- `CLAUDE.md`: move zsh out of "Pending" into "Active packages" with a one-line description and a pointer to `zsh/README.md`.
