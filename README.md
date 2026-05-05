@@ -49,6 +49,11 @@ Antidote-based zsh setup that works on macOS and Linux. See [`zsh/README.md`](zs
 for the file-type model (`.zshenv`/`.zprofile`/`.zshrc`) and the
 cross-platform strategy.
 
+### atuin
+
+Config for [atuin](https://atuin.sh) shell-history sync. Currently all
+defaults; tracked so any tweaks are captured.
+
 ### system-setup
 
 Scripts general system configuration. These are not really "dotfiles", but this

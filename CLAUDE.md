@@ -24,6 +24,8 @@ to `$HOME` directly.
 - **git/** — Shared `.gitconfig_shared` plus globals; users include it from
   their machine-local `~/.gitconfig`.
 - **direnv/** — Auto-detects devbox/nix/`.envrc.private`.
+- **atuin/** — Config for the [atuin](https://atuin.sh) shell-history tool.
+  Currently all-defaults; tracked so tweaks are captured.
 - **system-setup/** — Not a stow package; one-off macOS bootstrap scripts.
 
 ## Conventions
