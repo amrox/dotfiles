@@ -17,10 +17,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.linebreak = true
 
--- Skip terminal capability probes at startup (slow over high-latency SSH).
-opt.background = 'dark'
-opt.termguicolors = true
-
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
