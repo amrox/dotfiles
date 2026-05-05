@@ -29,6 +29,15 @@ command -v mise     &>/dev/null && eval "$(mise activate zsh)"
 command -v atuin    &>/dev/null && eval "$(atuin init zsh)"
 command -v starship &>/dev/null && eval "$(starship init zsh)"
 
+# Colorize ls — detect flavor (GNU vs BSD) so this works on Linux, macOS,
+# and macOS-with-coreutils. `ls --version` succeeds on GNU, errors on BSD.
+if ls --version >/dev/null 2>&1; then
+  alias ls='ls --color=auto'
+else
+  export CLICOLOR=1
+  export LSCOLORS=exfxcxdxbxegedabagacad  # Solarized
+fi
+
 # tmux: terminfo for tmux-256color isn't always present; downgrade to a name
 # every system has.
 if [[ "$TERM" == "tmux-256color" ]]; then
