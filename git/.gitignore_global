@@ -11,3 +11,6 @@
 
 # mypy
 .dmypy.json
+
+# claude
+.claude
