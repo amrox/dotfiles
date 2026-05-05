@@ -6,25 +6,6 @@ local not_vscode = function()
 end
 
 return {
-  -- Treesitter
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    cond = not_vscode,
-    main = 'nvim-treesitter',
-    opts = {
-      ensure_installed = { 'lua', 'bash', 'vim', 'vimdoc' },
-      highlight = { enable = true },
-    },
-  },
-
-  -- Fuzzy finder
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    cond = not_vscode,
-  },
-
   -- LSP config (provides server configurations for vim.lsp)
   {
     'neovim/nvim-lspconfig',
