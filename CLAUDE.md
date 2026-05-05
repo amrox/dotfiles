@@ -21,9 +21,10 @@ to `$HOME` directly.
   file-type model and cross-platform strategy. Plugin list in
   `zsh/.zsh_plugins.txt`. Antidote is a submodule (mirrors `tmux/tpm`).
 - **tmux/** — tpm-managed. Synchronized output enabled.
-- **git/** — Tracked `.gitconfig` includes `~/.gitconfig.local` for
-  machine-specific bits (email, lfs filter). Optional
-  `[includeIf "gitdir:~/work/**"]` for a separate work identity.
+- **git/** — Tracks `.gitconfig_shared` and `.gitignore_global` only.
+  `~/.gitconfig` stays as a real file (per-machine, includes the
+  shared file). This avoids tool auto-writes (`gh auth`, `git lfs
+  install`, etc.) polluting the tracked config.
 - **direnv/** — Auto-detects devbox/nix/`.envrc.private`.
 - **atuin/** — Config for the [atuin](https://atuin.sh) shell-history tool.
   Currently all-defaults; tracked so tweaks are captured.

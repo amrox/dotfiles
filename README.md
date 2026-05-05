@@ -23,23 +23,22 @@ stow tmux
 
 ### git
 
-`stow git` symlinks `~/.gitconfig` and `~/.gitignore_global` from the
-tracked files. Machine-specific bits (email, lfs filter, etc.) go in
-`~/.gitconfig.local`, which the tracked `.gitconfig` includes at the
-end. Example:
+`stow git` symlinks `~/.gitconfig_shared` and `~/.gitignore_global`. Keep
+`~/.gitconfig` as a *real* file — many tools (`gh auth login`, `git lfs
+install`, etc.) auto-write to it, and you don't want those host-specific
+edits landing in the tracked repo. Adding to `.gitconfig_shared` should
+be a deliberate action.
+
+In your local `~/.gitconfig`, include the shared file plus your email
+and any other machine-specific bits:
 
 ```
+[include]
+    path = ~/.gitconfig_shared
+
 [user]
     email = you@example.com
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
 ```
-
-For a separate work identity, the tracked `.gitconfig` has a commented
-`[includeIf "gitdir:~/work/**"]` example pointing at `~/.gitconfig.work`.
 
 ### vim
 

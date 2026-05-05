@@ -53,12 +53,3 @@
 	changed = green
 	untracked = cyan
 
-# Machine-specific bits (email, lfs filter, etc.) live untracked here.
-[include]
-	path = ~/.gitconfig.local
-
-# Per-directory identity overrides — uncomment and adjust if you want a
-# separate email for work repos.
-#[includeIf "gitdir:~/work/**"]
-#	path = ~/.gitconfig.work
-
