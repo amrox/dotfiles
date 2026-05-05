@@ -30,9 +30,18 @@ In your local `~/.gitconfig` do this:
         path = ~/.gitconfig_shared
 ```
 
-### vim-minimal
+### vim
 
-Basic sane settings to make vim act modernly and try to be smart about identation.
+A truly minimal `.vimrc`: sources Vim's built-in `defaults.vim`, sets
+mouse and clipboard, and points netrw history at `~/.cache/vim`. No
+plugin manager, no plugins.
+
+### nvim
+
+Neovim config built around [lazy.nvim](https://github.com/folke/lazy.nvim).
+Light footprint: built-in LSP for `lua_ls` and `bashls`, plus `vim-fugitive`
+and `vim-dispatch`. Plays nicely with the [VSCode Neovim](https://github.com/vscode-neovim/vscode-neovim)
+extension via `vim.g.vscode` checks.
 
 ### system-setup
 
