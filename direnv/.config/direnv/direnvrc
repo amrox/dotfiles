@@ -4,11 +4,13 @@
 
 # Experimental automation loading
 #
-if [[ -f .envrc.private ]]; then
-	source_env .envrc.private
+
+if [[ -f devbox.json ]]; then
+	eval "$(devbox generate direnv --print-envrc)"
 elif [[ -f shell.nix ]]; then
 	use nix
 elif [[ -f .tool-versions ]]; then
 	use asdf
 fi
 
+source_env_if_exists .envrc.private
