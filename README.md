@@ -43,6 +43,12 @@ Light footprint: built-in LSP for `lua_ls` and `bashls`, plus `vim-fugitive`
 and `vim-dispatch`. Plays nicely with the [VSCode Neovim](https://github.com/vscode-neovim/vscode-neovim)
 extension via `vim.g.vscode` checks.
 
+### zsh
+
+Antidote-based zsh setup that works on macOS and Linux. See [`zsh/README.md`](zsh/README.md)
+for the file-type model (`.zshenv`/`.zprofile`/`.zshrc`) and the
+cross-platform strategy.
+
 ### system-setup
 
 Scripts general system configuration. These are not really "dotfiles", but this

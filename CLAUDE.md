@@ -17,6 +17,9 @@ to `$HOME` directly.
   `bashls`; `vim-fugitive` and `vim-dispatch`. No treesitter, no telescope,
   no completion plugin (kept removable on purpose). Plays nicely with the
   VSCode Neovim extension via `vim.g.vscode` checks.
+- **zsh/** — Antidote-based, ~120ms cold start. See `zsh/README.md` for the
+  file-type model and cross-platform strategy. Plugin list in
+  `zsh/.zsh_plugins.txt`. Antidote is a submodule (mirrors `tmux/tpm`).
 - **tmux/** — tpm-managed. Synchronized output enabled.
 - **git/** — Shared `.gitconfig_shared` plus globals; users include it from
   their machine-local `~/.gitconfig`.
@@ -28,15 +31,10 @@ to `$HOME` directly.
 - Commit messages: `<package>: <imperative description>`. Lowercase. Body
   optional but used when the *why* isn't obvious from the diff.
 - Each commit stays scoped to one package or one concern.
-- Submodules: only `tmux/.tmux/plugins/tpm`. Don't add others without
-  reason — vendoring or upstream tooling is usually cleaner.
+- Submodules: `tmux/.tmux/plugins/tpm` and `zsh/.zsh/antidote`. Don't add
+  others without reason — vendoring or upstream tooling is usually cleaner.
 - Nothing tracked should hardcode `/Users/amrox/...`. Generated config that
   does (e.g. `.luarc.json`) is gitignored at the repo root.
-
-## Pending
-
-- **zsh** is not yet tracked. Setup has divergent state across machines and
-  needs reconciliation before adoption.
 
 ## Editor philosophy
 
