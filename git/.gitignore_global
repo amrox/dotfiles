@@ -14,3 +14,6 @@
 
 # claude
 .claude
+
+# nvim lua_ls — machine-specific generated paths
+.luarc.json
