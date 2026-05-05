@@ -1,33 +1,8 @@
-## where to store your database, default is your system data directory
-## mac: ~/Library/Application Support/com.elliehuxtable.atuin/history.db
-## linux: ~/.local/share/atuin/history.db
-# db_path = "~/.history.db"
+# Only customizations live here. Run `atuin default-config` to see the
+# full template with all available options.
 
-## where to store your encryption key, default is your system data directory
-# key_path = "~/.key"
-
-## where to store your auth session token, default is your system data directory
-# session_path = "~/.key"
-
-## date format used, either "us" or "uk"
-# dialect = "uk" 								
-
-## enable or disable automatic sync
-# auto_sync = true
-
-## how often to sync history. note that this is only triggered when a command 
-## is ran, so sync intervals may well be longer
-## set it to 0 to sync after every command
-# sync_frequency = "5m"
-
-## address of the sync server
-# sync_address = "https://api.atuin.sh"
-
-## which search mode to use
-## possible values: prefix, fulltext, fuzzy
-# search_mode = "prefix"
-
-## On Enter, put the selected command on the prompt for editing instead of
-## executing it immediately. (Tab does the same.) Atuin's newer default is
-## `true` for fresh installs.
+# Enter selects and places the command on the prompt for editing
+# (another Enter executes). Atuin's newer default is `true`, but the
+# old install on this machine kept the legacy `false`; pinning so
+# fresh installs match.
 enter_accept = false
