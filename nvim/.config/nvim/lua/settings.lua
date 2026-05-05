@@ -25,7 +25,6 @@ opt.expandtab = true
 opt.shiftwidth = indent
 opt.smartindent = true
 opt.tabstop = indent
-opt.hidden = true
 opt.scrolloff = 4
 opt.shiftround = true
 opt.splitbelow = true
