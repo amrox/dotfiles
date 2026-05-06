@@ -57,6 +57,27 @@ if [[ "$OSTYPE" == darwin* ]]; then
   alias love="/Applications/love.app/Contents/MacOS/love"
 fi
 
+# Clear $TMUX inside iTerm2 -CC tabs (et socket) so commands targeting the
+# default tmux socket (e.g. amux) don't get blocked by the nesting guard.
+# Safe — different servers.
+if [[ "$TMUX" == *"/et,"* ]]; then
+  unset TMUX
+fi
+
+# Fix tmux pane stuck at wrong size (e.g. after amux mobile resize).
+# No args: fix current window. "tfix all": fix all amux sessions.
+tfix() {
+  if [ "$1" = "all" ]; then
+    tmux list-sessions -F '#{session_name}' 2>/dev/null | grep '^amux-' | while read s; do
+      tmux resize-window -A -t "$s" 2>/dev/null
+      tmux set-option -w -u -t "$s" window-size 2>/dev/null
+    done
+    echo "Fixed all amux sessions"
+  else
+    tmux resize-window -A && tmux set-option -w -u window-size
+  fi
+}
+
 # Local overrides
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
