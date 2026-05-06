@@ -10,6 +10,11 @@ SAVEHIST=10000
 HISTFILE="$HOME/.zsh_history"
 setopt HIST_IGNORE_ALL_DUPS SHARE_HISTORY HIST_REDUCE_BLANKS
 
+# Completion init — needed before antidote loads OMZ plugins (e.g. gitfast)
+# that source bash completions and call `complete`.
+autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 # Plugins via antidote
 source ~/.zsh/antidote/antidote.zsh
 antidote load ~/.zsh_plugins.txt
