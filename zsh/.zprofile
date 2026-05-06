@@ -2,6 +2,11 @@
 # file-type model and cross-platform strategy.
 
 export DO_NOT_TRACK=1
+export ANSIBLE_NOCOWS=1
+
+# Editor — nvim is one of the first things installed on any new machine
+export EDITOR=nvim
+export VISUAL=nvim
 
 # brew (mac or linuxbrew)
 [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
