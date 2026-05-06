@@ -1,0 +1,25 @@
+# Minimal Brewfile — `brew bundle --file=~/.dotfiles/system-setup/Brewfile`
+#
+# Scoped to tools my zsh config references plus daily-driver workflow.
+# Not exhaustive — machine-specific extras live outside this file.
+
+# Referenced directly in zsh dotfiles
+brew "starship"
+brew "mise"
+brew "atuin"
+brew "neovim"
+brew "tmux"
+brew "fzf"
+brew "git"
+brew "awscli"
+brew "stow"
+
+# Workflow — git hosting CLIs
+brew "gh"
+
+# Workflow — quality of life
+brew "shellcheck"
+brew "lazygit"
+brew "lazydocker"
+brew "jq"
+brew "yq"
