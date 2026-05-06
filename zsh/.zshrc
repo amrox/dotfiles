@@ -4,6 +4,10 @@
 # Profiling — uncomment top + bottom together to measure startup
 #zmodload zsh/zprof
 
+# Keymap — force emacs. zsh otherwise picks vi when $EDITOR/$VISUAL contains
+# "vi" as a substring, which matches "nvim" and breaks Ctrl-A/Ctrl-E.
+bindkey -e
+
 # History
 HISTSIZE=10000
 SAVEHIST=10000
