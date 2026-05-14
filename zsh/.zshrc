@@ -46,6 +46,7 @@ else
   export CLICOLOR=1
   export LSCOLORS=exfxcxdxbxegedabagacad  # Solarized
 fi
+alias ll='ls -lah'
 
 # tmux: terminfo for tmux-256color isn't always present; downgrade to a name
 # every system has.
