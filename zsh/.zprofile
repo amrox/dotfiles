@@ -13,7 +13,7 @@ export VISUAL=nvim
 [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Personal bin dirs (prepended; user dirs win over system)
-path=("$HOME/bin" "$HOME/.local/bin" "$HOME/.cargo/bin" $path)
+path=("$HOME/bin" "$HOME/.local/bin" $path)
 
 # OrbStack (mac)
 [[ -f "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
